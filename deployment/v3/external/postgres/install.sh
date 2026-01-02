@@ -15,7 +15,12 @@ kubectl label ns $NS istio-injection=enabled --overwrite
 
 function installing_postgres() {
   echo Installing  Postgres
-  helm -n $NS install postgres bitnami/postgresql --version 12.11.1 -f values.yaml --wait
+  helm -n $NS install postgres bitnami/postgresql --version 12.11.1 -f values.yaml --wait  \
+  --set image.repository=technoforte2023/postgresql \
+  --set image.tag=dev \
+  --set persistence.enabled=true \
+  --set persistence.storageClass=nfs-csi \
+  --set persistence.size=25G
   echo Installed Postgres
 
   echo Installing gateways and virtual services

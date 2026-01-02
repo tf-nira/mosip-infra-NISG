@@ -23,10 +23,14 @@ function installing_kafka() {
   helm repo update
 
   echo Installing kafka
-  helm -n $NS install kafka mosip/kafka -f values.yaml --wait --version $CHART_VERSION
+  helm -n $NS install kafka mosip/kafka -f values.yaml --wait --version $CHART_VERSION \
+  --set image.repository=technoforte2023/kafka \
+  --set image.tag=dev
 
   echo Installing kafka-ui
-  helm -n $NS install kafka-ui kafka-ui/kafka-ui -f ui-values.yaml --wait --version $UI_CHART_VERSION
+  helm -n $NS install kafka-ui kafka-ui/kafka-ui -f ui-values.yaml --wait --version $UI_CHART_VERSION \
+  --set image.repository=technoforte2023/kafka-ui \
+  --set image.tag=dev
 
   KAFKA_UI_HOST=$(kubectl get cm global -o jsonpath={.data.mosip-kafka-host})
   KAFKA_UI_NAME=kafka-ui

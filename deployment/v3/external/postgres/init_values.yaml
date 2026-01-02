@@ -63,9 +63,9 @@ databases:
     branch: v1.2.0.1
 
   mosip_esignet:
-    enabled: false
+    enabled: true
     branch: v1.3.0
 
   mosip_mockidentitysystem:
-    enabled: false
+    enabled: true
     branch: v0.9.2

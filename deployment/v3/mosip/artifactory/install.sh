@@ -18,7 +18,7 @@ function installing_artifactory() {
   helm repo update
 
   echo Installing artifactory
-  helm -n $NS install artifactory mosip/artifactory --version $CHART_VERSION
+  helm -n $NS install artifactory mosip/artifactory --version $CHART_VERSION --set image.repository=dharanidharan0411/artifactory-server --set image.tag=tf_myanmar
 
   kubectl -n $NS  get deploy -o name |  xargs -n1 -t  kubectl -n $NS rollout status
 

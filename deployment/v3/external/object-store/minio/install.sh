@@ -14,7 +14,12 @@ kubectl label ns $NS istio-injection=enabled --overwrite
 
 function installing_minio() {
   echo Installing minio
-  helm -n minio install minio mosip/minio --version 10.1.6
+  helm -n minio install minio mosip/minio --version 10.1.6  \
+  --set image.repository=technoforte2023/minio \
+  --set image.tag=dev \
+  --set persistence.enabled=true \
+  --set persistence.storageClass=nfs-csi \
+  --set persistence.size=20G
 
   echo Installing gateways and virtualservice
   EXTERNAL_HOST=$(kubectl get cm global -o jsonpath={.data.mosip-minio-host})

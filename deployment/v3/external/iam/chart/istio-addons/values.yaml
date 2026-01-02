@@ -1,4 +1,5 @@
 # Keycloak may be accessed in-cluster or from outside
 keycloakInternalHost: keycloak.keycloak
-keycloakExternalHost: iam.sandbox.xyz.net
+keycloakExternalHost: iam-plt.eid.gov.mm
 service: keycloak
+~
