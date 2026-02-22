@@ -31,7 +31,7 @@ function installing_idrepo() {
   helm -n $NS install credentialrequest mosip/credentialrequest --version $CHART_VERSION  --set image.repository=mosipid/credential-request-generator --set image.tag=1.2.1.0
 
   echo Running identity service
-  helm -n $NS install identity mosip/identity --version $CHART_VERSION --set image.repository=mosipid/id-repository-identity-service --set image.tag=1.2.1.0
+  helm -n $NS install identity mosip/identity --version $CHART_VERSION --set image.repository=dharanidharan0411/id-repository-identity-service --set image.tag=mos
 
   echo Running vid service
   helm -n $NS install vid mosip/vid --version $CHART_VERSION  --set image.repository=mosipid/id-repository-vid-service --set image.tag=1.2.1.0
