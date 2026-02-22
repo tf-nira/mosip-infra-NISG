@@ -39,7 +39,7 @@ function installing_ida() {
   helm -n $NS install ida-keygen mosip/keygen --wait --wait-for-jobs  --version $CHART_VERSION -f keygen_values.yaml
 
   echo Installing ida auth
-  helm -n $NS install ida-auth mosip/ida-auth --version $CHART_VERSION $ENABLE_INSECURE
+  helm -n $NS install ida-auth mosip/ida-auth  --version $CHART_VERSION $ENABLE_INSECURE --set image.repository=dharanidharan0411/authentication-service --set image.tag=myanmar
 
   echo Installing ida internal
   helm -n $NS install ida-internal mosip/ida-internal --version $CHART_VERSION $ENABLE_INSECURE
