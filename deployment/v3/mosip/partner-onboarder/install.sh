@@ -32,7 +32,7 @@ function installing_onboarder() {
   if [ $yn = "Y" ]; then
     echo Istio label
     kubectl label ns $NS istio-injection=disabled --overwrite
-    helm repo update
+    #helm repo update
 
     echo Copy configmaps
     kubectl -n $NS --ignore-not-found=true delete cm s3

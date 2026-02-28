@@ -12,7 +12,8 @@ helm repo update
 echo Create $NS namespace
 kubectl create namespace $NS
 kubectl label ns $NS istio-injection=enabled --overwrite
-
+helm repo add bitnami https://charts.bitnami.com/bitnami
+helm repo update 
 function installing_postgres() {
   echo Installing  Postgres
   helm -n $NS install postgres bitnami/postgresql --version 12.11.1 -f values.yaml --wait  \

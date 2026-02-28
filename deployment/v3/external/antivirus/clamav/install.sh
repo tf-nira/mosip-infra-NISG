@@ -19,7 +19,8 @@ function installing_Clamav() {
   helm repo update
 
   echo Installing Clamav
-  helm -n $NS install clamav wiremind/clamav -f values.yaml --version $CHART_VERSION  --set autoscaling.enabled=false
+  helm -n $NS install clamav nira/clamav -f values.yaml --version $CHART_VERSION --set autoscaling.enabled=false
+ 
 
   echo ClamAV installed sucessfully
   return 0

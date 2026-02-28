@@ -43,7 +43,7 @@ function installing_regproc() {
   helm -n $NS install regproc-group2 mosip/regproc-group2  --version $CHART_VERSION
 
   echo Installing group3
-  helm -n $NS install regproc-group3 mosip/regproc-group3  --version $CHART_VERSION --set image.repository=dharanidharan0411/registration-processor-stage-group-3--set image.tag=myanmar
+  helm -n $NS install regproc-group3 mosip/regproc-group3  --version $CHART_VERSION --set image.repository=dharanidharan0411/registration-processor-stage-group-3 --set image.tag=myanmar
 
   echo Installing group4
   helm -n $NS install regproc-group4 mosip/regproc-group4 --version $CHART_VERSION
@@ -66,8 +66,8 @@ function installing_regproc() {
   echo Installing regproc-reprocess
   helm -n $NS install regproc-reprocess mosip/regproc-reprocess --version $CHART_VERSION
 
-  echo Installing regproc-landingzone
-  helm -n $NS install regproc-landingzone mosip/regproc-landingzone --version $CHART_VERSION
+  #echo Installing regproc-landingzone
+  #helm -n $NS install regproc-landingzone mosip/regproc-landingzone --version $CHART_VERSION
 
   kubectl -n $NS  get deploy -o name |  xargs -n1 -t  kubectl -n $NS rollout status
   echo Intalled regproc services

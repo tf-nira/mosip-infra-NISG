@@ -6,3 +6,20 @@ image:
   repository: clamav/clamav
   tag: latest
   pullPolicy: Always
+
+  resources:
+   limits:
+    cpu: 100m
+    memory: 500Mi
+   requests:
+    cpu: 100m
+    memory: 500Mi
+
+hpa:
+  enabled: true
+  maxReplicas: 20
+  # average total CPU usage per pod (1-100)
+  cpu: 75
+  # average memory usage per pod (100Mi-1Gi)
+  memory: "75"
+  # requests: "500m"
